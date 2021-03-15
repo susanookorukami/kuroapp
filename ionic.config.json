@@ -1,0 +1,7 @@
+{
+  "name": "kuro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
