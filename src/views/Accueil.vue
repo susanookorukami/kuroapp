@@ -15,7 +15,11 @@
           <ion-title size="large">Accueil</ion-title>
         </ion-toolbar>
       </ion-header>
-
+        <ul id="example-1">
+  <li v-for="element in info" :key="element.gun" @click="$router.push('/folder/Gun/' +char.id)">
+    {{ element.gun}} <br/> {{ element.range}} <br/> {{ element.type}}
+  </li>
+</ul>
       <div id="container">
         <strong class="capitalize">ratchet et clank</strong>
         <p>ratchet and clank<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
@@ -40,6 +44,11 @@ export default {
     IonTitle,
     IonToolbar
   },
+  data(){
+    return{
+      info : []
+    }
+  },
   mounted(){
       console.log("hello");
       this.getinfo();
@@ -48,7 +57,14 @@ export default {
     getinfo(){
        db.collection("gun").get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
+            console.log(doc.data());
+            
+            this.info.push({
+              id: doc.id,
+              gun: doc.data().gun,
+              range:doc.data().range,
+              type:doc.data().type,
+            })
           });
         });
      },

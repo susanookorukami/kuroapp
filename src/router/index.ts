@@ -13,6 +13,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/folder/Gun',
     component: () => import ('../views/Gun.vue')
+  },{
+    path: '/Gun/:id',
+    component: () => import ('../views/GunDetail.vue')
   },
   {
     path: '/folder/:id',

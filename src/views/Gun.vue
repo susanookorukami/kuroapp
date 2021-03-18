@@ -15,11 +15,26 @@
           <ion-title size="large">Gun</ion-title>
         </ion-toolbar>
       </ion-header>
+      <form @submit.prevent="onFormSubmit">
+                <div class="form-group">
+                    <label>Gun</label>
+                    <input type="text" class="form-control" v-model="gun.gun" required>
+                </div>
 
-      <div id="container">
-        <strong class="capitalize">Gun</strong>
-        <p>Gun<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+                <div class="form-group">
+                    <label>Range</label>
+                    <input type="text" class="form-control" v-model="gun.range" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Type</label>
+                    <input type="text" class="form-control" v-model="gun.type" required>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Add gun</button>
+                </div>
+                </form>
     </ion-content>
   </ion-page>
 </template>
@@ -27,18 +42,28 @@
 <script>
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
-export default {
-  name: 'Gun',
-  components: {
-    IonButtons,
-    IonContent,
-    IonHeader,
-    IonMenuButton,
-    IonPage,
-    IonTitle,
-    IonToolbar
-  }
-}
+ import { db } from '../firebaseDb';
+
+    export default {
+        data() {
+            return {
+                gun: {}
+            }
+        },
+        methods: {
+            onFormSubmit(event) {
+                event.preventDefault()
+                db.collection('gun').add(this.gun).then(() => {
+                    alert("user successfully created!");
+                    this.gun.gun = '';
+                    this.gun.range = '';
+                    this.gun.type = '';
+                }).catch((error) => {
+                    console.log(error);
+                });
+            }
+        }
+    }
 </script>
 
 <style scoped>
