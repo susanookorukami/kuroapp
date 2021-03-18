@@ -8,14 +8,14 @@
         <ion-title>Gun</ion-title>
       </ion-toolbar>
     </ion-header>
-    
+
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Gun</ion-title>
         </ion-toolbar>
       </ion-header>
-    
+
       <div id="container">
         <strong class="capitalize">Gun</strong>
         <p>Gun<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
@@ -28,7 +28,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default {
-  name: 'Folder',
+  name: 'Gun',
   components: {
     IonButtons,
     IonContent,

@@ -8,14 +8,14 @@
         <ion-title>Accueil</ion-title>
       </ion-toolbar>
     </ion-header>
-    
+
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Accueil</ion-title>
         </ion-toolbar>
       </ion-header>
-    
+
       <div id="container">
         <strong class="capitalize">ratchet et clank</strong>
         <p>ratchet and clank<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
@@ -30,20 +30,7 @@ import { db } from '../firebaseDb'
 
 
 export default {
-  name: 'Folder',
-  mounded(){
-      console.log("hello");
-      this.getinfo();
-  },
-  methods: {
-     getinfo(){
-        db.collection("gun").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-    });
-});
-     },
+  name: 'Accueil',
   components: {
     IonButtons,
     IonContent,
@@ -52,9 +39,20 @@ export default {
     IonPage,
     IonTitle,
     IonToolbar
-  }
-  
-}
+  },
+  mounted(){
+      console.log("hello");
+      this.getinfo();
+  },
+  methods: {
+    getinfo(){
+       db.collection("gun").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+          });
+        });
+     },
+   }
 }
 </script>
 
