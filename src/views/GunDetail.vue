@@ -1,28 +1,44 @@
 <template>
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-striped">
-                <tbody>
-                    <tr v-for="g in gun" :key="g.id">
-                        <td>{{ g.gun }}</td>
-                        <td>{{ g.range }}</td>
-                        <td>{{ g.type }}</td>
-                        <td>
-                            <router-link :to="{name: 'edit', params: { id: gun.id }}" class="btn btn-primary">Edit
-                            </router-link>
-                            <button @click.prevent="deleteUser(gun.id)" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Accueil</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Accueil</ion-title>
+        </ion-toolbar>
+      </ion-header>
+        TEST
+      <div id="container">
+        <strong class="capitalize">ratchet et clank</strong>
+        <p>ratchet and clank<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script>
     import { db } from '../firebaseDb';
-    
+    import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+
     export default {
+        name: 'GunDetail',
+        components: {
+          IonButtons,
+          IonContent,
+          IonHeader,
+          IonMenuButton,
+          IonPage,
+          IonTitle,
+          IonToolbar
+        },
         data() {
             return {
                 gun: []
