@@ -16,7 +16,7 @@
         </ion-toolbar>
       </ion-header>
         <ul id="example-1">
-  <li v-for="element in info" :key="element.gun" @click="$router.push('/folder/Gun/' +char.id)">
+  <li v-for="element in info" :key="element.gun" @click="$router.push('/folder/Accueil/' + element.id)">
     {{ element.gun}} <br/> {{ element.range}} <br/> {{ element.type}}
   </li>
 </ul>
