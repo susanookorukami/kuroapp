@@ -15,11 +15,11 @@
           <ion-title size="large">Accueil</ion-title>
         </ion-toolbar>
       </ion-header>
-        <ul id="example-1">
-  <li v-for="element in info" :key="element.gun" @click="$router.push('/folder/Accueil/' + element.id)">
-    {{ element.gun}} <br/> {{ element.range}} <br/> {{ element.type}}
-  </li>
-</ul>
+        <ul>
+        <li v-for="element in info" :key="element.id" @click="$router.push('/folder/Accueil/' + element.id)">
+            {{ element.gun}} <br/> {{ element.range}} <br/> {{ element.type}}
+          </li>
+        </ul>
       <div id="container">
         <strong class="capitalize">ratchet et clank</strong>
         <p>ratchet and clank<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>

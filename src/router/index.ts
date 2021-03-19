@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Gun.vue')
   },
   {
-    path: '/folder/Acceuil/:id',
+    path: '/folder/Accueil/:id',
     component: () => import ('../views/GunDetail.vue')
   },
   {
